@@ -227,7 +227,283 @@
 											<td><?php echo $email ?></td>
 											<td><?php echo $telefone ?></td>
 											<td><?php echo $uf ?></td>
-											
+											<td>
+												<!-- Modal trigger button -->
+												<button
+													type="button"
+													class="btn btn-warning btn-lg"
+													data-bs-toggle="modal"
+													data-bs-target="#modaleditar"
+													
+												>
+												<i class="fa-solid fa-user-pen"></i>
+													
+												</button>
+												
+												<!-- Modal Body -->
+												<!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
+												<div
+													class="modal fade"
+													id="modaleditar"
+													tabindex="-1"
+													data-bs-backdrop="static"
+													data-bs-keyboard="false"
+													
+													role="dialog"
+													aria-labelledby="modalTitleId"
+													aria-hidden="true"
+												>
+													<div
+														class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm"
+														role="document"
+													>
+														<div class="modal-content">
+															<div class="modal-header">
+																<h5 class="modal-title" id="modalTitleId">
+																	Edição de Cadastro
+																</h5>
+																<button
+																	type="button"
+																	class="btn-close"
+																	data-bs-dismiss="modal"
+																	aria-label="Close"
+																></button>
+															</div>
+															<div class="modal-body">
+																<form action="atualizarcliente.php" method="post">
+																<div class="row">
+						<div class="mb-  mt-  col-12">
+							<label for="nome" class="form-label"><h5 class="card-title mb-0">Nome</h5></label>
+							<input
+								type="text"
+								class="form-control"
+								name="nome"
+								id="nome"
+								aria-describedby="helpId"
+								placeholder="Digite o seu Nome"
+								required
+							/>
+							<small id="helpId" class="form-text text-muted"></small>
+						</div>
+						<div class="mb-1 col-12">
+							<label for="email" class="form-label"><h5 class="card-title mb-0">E-mail</h5></label>
+							<input
+								type="email"
+								class="form-control"
+								name="email"
+								id="email"
+								aria-describedby="helpId"
+								placeholder="Digite o seu E-mail"
+								required
+							/>
+							<small id="helpId" class="form-text text-muted"></small>
+						</div>
+						<div class="mb-1 col-12">
+							<label for="telefone" class="form-label"><h5 class="card-title mb-0">Telefone</h5></label>
+							<input
+								type="tel"
+								class="form-control"
+								name="telefone"
+								id="telefone"
+								aria-describedby="helpId"
+								placeholder="(00) 00000-0000"
+								required
+							/>
+							<small id="helpId" class="form-text text-muted"></small>
+						</div>
+						
+						<div class="mb-1 col-12">
+							<label for="cpfcnpj" class="form-label"><h5 class="card-title mb-0">CPF/CNPJ</h5></label>
+							<input
+								type="text"
+								class="form-control"
+								name="cpfcnpj"
+								id="cpfcnpj"
+								aria-describedby="helpId"
+								placeholder="000.000.000-00"
+								required
+							/>
+							<small id="helpId" class="form-text text-muted"></small>
+						</div>
+
+						<div class="mb-1 col-12">
+							<label for="cep" class="form-label"><h5 class="card-title mb-0">CEP</h5></label>
+							<input
+								type="text"
+								class="form-control"
+								name="cep"
+								id="cep"
+								aria-describedby="helpId"
+								maxlength="8"
+								onkeyup= "viaCEP()"
+								placeholder="00000-000"
+								required
+							/>
+							<small id="helpId" class="form-text text-muted"></small>
+						</div>
+					</div>
+
+					<div class="row">
+						<div class="mb-1 col-12">
+							<label for="logradouro" class="form-label"><h5 class="card-title mb-0">Logradouro</h5></label>
+							<input
+								type="text"
+								class="form-control"
+								name="logradouro"
+								id="logradouro"
+								aria-describedby="helpId"
+								placeholder="Nome da rua"
+								required
+							/>
+							<small id="helpId" class="form-text text-muted"></small>
+						</div>
+
+						<div class="mb-1 col-12">
+							<label for="numero" class="form-label"><h5 class="card-title mb-0">N°</h5></label>
+							<input
+								type="number"
+								class="form-control"
+								name="numero"
+								id="numero"
+								aria-describedby="helpId"
+								placeholder=""
+								required
+							/>
+							<small id="helpId" class="form-text text-muted"></small>
+						</div>
+
+						<div class="mb-1 col-12">
+							<label for="complemento" class="form-label"><h5 class="card-title mb-0">Complemento</h5></label>
+							<input
+								type="text"
+								class="form-control"
+								name="complemento"
+								id="complemento"
+								aria-describedby="helpId"
+								placeholder="Digite o Complemento"
+								required
+							/>
+							<small id="helpId" class="form-text text-muted"></small>
+						</div>
+						<div class="mb-1 col-12">
+							<label for="bairro" class="form-label"><h5 class="card-title mb-0">Bairro</h5></label>
+							<input
+								type="text"
+								class="form-control"
+								name="bairro"
+								id="bairro"
+								aria-describedby="helpId"
+								placeholder="Digite o seu Bairro"
+								required
+							/>
+							<small id="helpId" class="form-text text-muted"></small>
+						</div>
+						<div class="mb-1 col-12">
+							<label for="cidade" class="form-label"><h5 class="card-title mb-0">Cidade</h5></label>
+							<input
+								type="text"
+								class="form-control"
+								name="cidade"
+								id="cidade"
+								aria-describedby="helpId"
+								placeholder="Digite a sua Cidade"
+								required
+							/>
+							<small id="helpId" class="form-text text-muted"></small>
+						</div>
+						<div class="mb-1 col-12">
+							<label for="uf" class="form-label"><h5 class="card-title mb-0">Estado</h5></label>
+							<input
+								type="text"
+								class="form-control"
+								name="uf"
+								id="uf"
+								aria-describedby="helpId"
+								placeholder="Digite o seu Estado"
+								required
+							/>
+							<small id="helpId" class="form-text text-muted"></small>
+						</div></div>
+						</div>
+															<div class="modal-footer">
+																<button
+																	type="button"
+																	class="btn btn-secondary"
+																	data-bs-dismiss="modal"
+																>
+																	Fechar
+																</button>
+																<button type="button" class="btn btn-primary">Salvar</button>
+															</form>
+															</div>
+														</div>
+													</div>
+												</div>
+												
+												<!-- Modal trigger button -->
+												<button
+													type="button"
+													class="btn btn-danger btn-lg"
+													data-bs-toggle="modal"
+													data-bs-target="#modalexcluir"
+													
+												>
+												<i class="fa-solid fa-trash"></i>
+													
+												</button>
+												
+												<!-- Modal Body -->
+												<!-- if you want to close by clicking outside the modal, delete the last endpoint:data-bs-backdrop and data-bs-keyboard -->
+												<div
+													class="modal fade"
+													id="modalexcluir"
+													tabindex="-1"
+													data-bs-backdrop="static"
+													data-bs-keyboard="false"
+													
+													role="dialog"
+													aria-labelledby="modalTitleId"
+													aria-hidden="true"
+												>
+													<div
+														class="modal-dialog modal-dialog-scrollable modal-dialog-centered modal-sm"
+														role="document"
+													>
+														<div class="modal-content">
+															<div class="modal-header">
+																<h5 class="modal-title" id="modalTitleId">
+																	
+																</h5>
+																<button
+																	type="button"
+																	class="btn-close"
+																	data-bs-dismiss="modal"
+																	aria-label="Close"
+																></button>
+															</div>
+															<div class="modal-body">Deseja realmente excluir?</div>
+															<div class="modal-footer">
+																<button
+																	type="button"
+																	class="btn btn-secondary"
+																	data-bs-dismiss="modal"
+																>
+																	Voltar
+																</button>
+																<button type="button" class="btn btn-danger">Excluir</button>
+															</div>
+														</div>
+													</div>
+												</div>
+												
+												<!-- Optional: Place to the bottom of scripts -->
+												<script>
+													const myModal = new bootstrap.Modal(
+														document.getElementById("modalId"),
+														options,
+													);
+												</script>
+											</td>
 										</tr>
 										<?php } ?>
 							</tbody>
